@@ -5,21 +5,35 @@
 def order(values: list = None) -> list:
     if values is None:
         # TODO: demander les valeurs ici
-        pass
-
-    return []
+        L =[]
+        for i in range(1,11):
+            valeurs = input("choisissez une valeur: \n")
+            L.append(valeurs)
+    return sorted(L)
 
 
 def anagrams(words: list = None) -> bool:
     if words is None:
         # TODO: demander les mots ici
-        pass
+        mot1 = input("choisissez un premier mot \n")
+        mot2 = input("choisissez un premier mot \n")
+        if len(mot1) == len(mot2):
+            i = 0
+            while i < len(mot1):
+                if mot1[i] == mot2[len(mot2)-1-i]:
+                    print('ok')
+                    i += 1
+                else:
+                    break
 
-    return False
+        else:
+            print('no')
 
 
 def contains_doubles(items: list) -> bool:
-    return False
+    ensemble = set(items)
+    return len(ensemble) != len(items)
+
 
 
 def best_grades(student_grades: dict) -> dict:
@@ -51,7 +65,7 @@ def main() -> None:
     print(f"On vérifie les anagrammes...")
     anagrams()
 
-    my_list = [3, 3, 5, 6, 1, 1]
+    my_list = [1, 1, 5, 6, 16, 0]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
     grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
